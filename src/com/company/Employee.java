@@ -1,6 +1,6 @@
 package com.company;
 
-public abstract class Employee implements Salaried {
+abstract class Employee {
 
     private String firstName;
     private String lastName;
@@ -57,16 +57,12 @@ public abstract class Employee implements Salaried {
     }
 
     double calculateSalary() {
-        if (this.getExperience() > 5) {
-            return this.getRate() * 1.2 + 500;
-        } else if (this.getExperience() > 2) {
-            return this.getRate() + 200;
-        } else {
-            return this.getRate();
-        }
+        return (this.getExperience() > 5) ? (this.getRate() * 1.2 + 500) : (
+                (this.getExperience() > 2) ? (this.getRate() + 200) : this.getRate()
+        );
     }
 
-    void printSalary() {
+    void giveSalary() {
         String salaryDetails = this.getFirstName() + " " +
                 this.getLastName() + ": got salary: " +
                 this.calculateSalary();

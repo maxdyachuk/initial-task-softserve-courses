@@ -1,6 +1,6 @@
 package com.company;
 
-public class Designer extends Employee {
+class Designer extends Employee {
 
     private double effectivenessCoefficient;
 
@@ -19,22 +19,11 @@ public class Designer extends Employee {
     }
 
     private double setValidEffectivenessCoefficient(double effectivenessCoefficient) {
-        if (effectivenessCoefficient <= 0) {
-            return 0;
-        } else if (effectivenessCoefficient > 1) {
-            return 1;
-        } else {
-            return effectivenessCoefficient;
-        }
+        return effectivenessCoefficient <= 0 ? 0 : (effectivenessCoefficient > 1 ? 1 : effectivenessCoefficient);
     }
 
     @Override
     double calculateSalary() {
-        return super.calculateSalary() * effectivenessCoefficient;
-    }
-
-    @Override
-    public void getSalary() {
-        printSalary();
+        return super.calculateSalary() * this.getEffectivenessCoefficient();
     }
 }

@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Manager extends Employee {
+class Manager extends Employee {
 
     private List<Employee> team = new ArrayList<>();
 
@@ -11,8 +11,26 @@ public class Manager extends Employee {
         super(firstName, lastName, rate, experience);
     }
 
+    void addTeamMember(Employee employee) {
+        if (employee instanceof Developer || employee instanceof Designer) {
+            team.add(employee);
+        } else {
+            System.out.println("Can not add manager to team.");
+        }
+    }
+
+    void removeTeamMember(Employee employee) {
+        team.remove(employee);
+    }
+
+    Employee getTeamMember(int i) {
+        return team.get(i);
+    }
+
+    @Override
     double calculateSalary() {
         double salary = super.calculateSalary();
+
         if (team.size() > 10) {
             salary += 300;
         } else if (team.size() > 5) {
@@ -27,35 +45,12 @@ public class Manager extends Employee {
     }
 
     private int countDevelopersInTeam() {
-        int counter = 0;
-        for (Employee employee : team) {
-            if (employee instanceof Developer) {
-                counter++;
-            }
-        }
-        return counter;
+        return (int) team.stream().filter(e -> e instanceof Developer).count();
     }
 
     @Override
-    public void getSalary() {
-        printSalary();
-        for (Employee employee : team) {
-            System.out.print("---");
-            employee.getSalary();
-        }
-    }
-
-    void addTeamMember(Employee employee) {
-        if (employee instanceof Developer || employee instanceof Designer) {
-            team.add(employee);
-        }
-    }
-
-    void removeTeamMember(Employee employee) {
-        team.remove(employee);
-    }
-
-    Employee getTeamMember(int i) {
-        return team.get(i);
+    void giveSalary() {
+        super.giveSalary();
+        team.forEach(Employee::giveSalary);
     }
 }
