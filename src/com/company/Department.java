@@ -23,6 +23,4 @@ class Department {
 
         managers.forEach(Employee::giveSalary);
     }
-
-
 }
