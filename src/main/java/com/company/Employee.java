@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.exceptions.InvalidExperienceValueException;
+
 abstract class Employee {
 
     private String firstName;
@@ -12,7 +14,11 @@ abstract class Employee {
         this.firstName = firstName;
         this.lastName = lastName;
         this.rate = rate;
-        this.experience = experience;
+        if (experience < 0) {
+            throw new InvalidExperienceValueException();
+        } else {
+            this.experience = experience;
+        }
     }
 
     String getFirstName() {

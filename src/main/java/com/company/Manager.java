@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.exceptions.InvalidTeamMemberException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,16 +17,20 @@ class Manager extends Employee {
         if (employee instanceof Developer || employee instanceof Designer) {
             team.add(employee);
         } else {
-            System.out.println("Can not add manager to team.");
+            throw new InvalidTeamMemberException();
         }
     }
 
-    void removeTeamMember(Employee employee) {
-        team.remove(employee);
+    boolean removeTeamMember(Employee employee) {
+        return team.remove(employee);
     }
 
     Employee getTeamMember(int i) {
-        return team.get(i);
+        try {
+            return team.get(i);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
     }
 
     @Override
@@ -37,7 +43,7 @@ class Manager extends Employee {
             salary += 200;
         }
 
-        if (countDevelopersInTeam() >= (team.size() / 2) && countDevelopersInTeam() != 0) {
+        if (countDevelopersInTeam() > (team.size() / 2) && countDevelopersInTeam() != 0) {
             salary *= 1.1;
         }
 

@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.exceptions.InvalidManagerException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,16 +15,21 @@ class Department {
         if (employee instanceof Manager) {
             managers.add(employee);
         } else {
-            System.out.println("Can not add employee to department.");
+            throw new InvalidManagerException();
         }
     }
 
-    void removeManager(Employee employee) {
-        managers.remove(employee);
+    boolean removeManager(Employee employee) {
+        return managers.remove(employee);
     }
 
     Employee getManager(int i) {
-        return managers.get(i);
+        try {
+            return managers.get(i);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
+
     }
 
     void giveSalary() {
