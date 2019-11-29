@@ -5,7 +5,7 @@ import com.company.entities.DeveloperEntity;
 
 import java.util.List;
 
-public class DeveloperClass {
+public class DeveloperService {
 
     public void addDeveloper(DeveloperEntity developer) {
         DAOFactory.getInstance().getDeveloperDAO().addElement(developer);
