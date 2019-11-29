@@ -1,6 +1,10 @@
 package com.company;
 
-public class Main {
+import com.company.models.Designer;
+import com.company.models.Developer;
+import com.company.models.Manager;
+
+public class PojoApp {
 
     public static void main(String[] args) {
         Department department = new Department();

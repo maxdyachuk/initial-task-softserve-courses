@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.models.Employee;
+import com.company.models.Manager;
 import com.company.exceptions.InvalidManagerException;
 
 import java.util.ArrayList;

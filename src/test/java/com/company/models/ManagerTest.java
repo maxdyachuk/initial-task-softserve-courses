@@ -1,5 +1,9 @@
-package com.company;
+package com.company.models;
 
+import com.company.models.Designer;
+import com.company.models.Developer;
+import com.company.models.Employee;
+import com.company.models.Manager;
 import com.company.exceptions.InvalidTeamMemberException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

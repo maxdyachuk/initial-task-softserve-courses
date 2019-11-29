@@ -1,5 +1,6 @@
-package com.company;
+package com.company.models;
 
+import com.company.models.Designer;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.time.Duration;

@@ -1,5 +1,6 @@
-package com.company;
+package com.company.models;
 
+import com.company.models.Employee;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import java.time.Duration;
