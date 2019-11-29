@@ -1,8 +1,8 @@
-package com.company;
+package com.company.models;
 
 import com.company.exceptions.InvalidExperienceValueException;
 
-abstract class Employee {
+public abstract class Employee {
 
     private String firstName;
     private String lastName;
@@ -10,7 +10,10 @@ abstract class Employee {
     private double experience;
     private Employee manager;
 
-    Employee(String firstName, String lastName, double rate, double experience) {
+    public Employee() {
+    }
+
+    public Employee(String firstName, String lastName, double rate, double experience) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.rate = rate;
@@ -21,35 +24,43 @@ abstract class Employee {
         }
     }
 
-    String getFirstName() {
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getFirstName() {
         return firstName;
     }
 
-    String getLastName() {
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLastName() {
         return lastName;
     }
 
-    double getRate() {
+    public double getRate() {
         return rate;
     }
 
-    void setRate(double rate) {
+    public void setRate(double rate) {
         this.rate = rate;
     }
 
-    double getExperience() {
+    public double getExperience() {
         return experience;
     }
 
-    void setExperience(double experience) {
+    public void setExperience(double experience) {
         this.experience = experience;
     }
 
-    Employee getManager() {
+    public Employee getManager() {
         return manager;
     }
 
-    void setManager(Employee manager) {
+    public void setManager(Employee manager) {
         this.manager = manager;
     }
 
@@ -68,7 +79,7 @@ abstract class Employee {
         );
     }
 
-    void giveSalary() {
+    public void giveSalary() {
         String salaryDetails = this.getFirstName() + " " +
                 this.getLastName() + ": got salary: " +
                 this.calculateSalary();

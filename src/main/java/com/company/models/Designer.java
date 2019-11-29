@@ -1,20 +1,23 @@
-package com.company;
+package com.company.models;
 
-class Designer extends Employee {
+public class Designer extends Employee {
 
     private double effectivenessCoefficient;
 
-    Designer(String firstName, String lastName, double rate, double experience, double effectivenessCoefficient, Manager manager) {
+    public Designer() {
+    }
+
+    public Designer(String firstName, String lastName, double rate, double experience, double effectivenessCoefficient, Manager manager) {
         super(firstName, lastName, rate, experience);
         this.effectivenessCoefficient = setValidEffectivenessCoefficient(effectivenessCoefficient);
         this.setManager(manager);
     }
 
-    double getEffectivenessCoefficient() {
+    public double getEffectivenessCoefficient() {
         return effectivenessCoefficient;
     }
 
-    void setEffectivenessCoefficient(double effectivenessCoefficient) {
+    public void setEffectivenessCoefficient(double effectivenessCoefficient) {
         this.effectivenessCoefficient = setValidEffectivenessCoefficient(effectivenessCoefficient);
     }
 

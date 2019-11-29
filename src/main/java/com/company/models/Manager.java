@@ -1,19 +1,30 @@
-package com.company;
+package com.company.models;
 
 import com.company.exceptions.InvalidTeamMemberException;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Manager extends Employee {
+public class Manager extends Employee {
 
     private List<Employee> team = new ArrayList<>();
 
-    Manager(String firstName, String lastName, double rate, double experience) {
+    public Manager() {
+    }
+
+    public Manager(String firstName, String lastName, double rate, double experience) {
         super(firstName, lastName, rate, experience);
     }
 
-    void addTeamMember(Employee employee) {
+    public List<Employee> getTeam() {
+        return team;
+    }
+
+    public void setTeam(List<Employee> team) {
+        this.team = team;
+    }
+
+    public void addTeamMember(Employee employee) {
         if (employee instanceof Developer || employee instanceof Designer) {
             team.add(employee);
         } else {
@@ -21,11 +32,11 @@ class Manager extends Employee {
         }
     }
 
-    boolean removeTeamMember(Employee employee) {
+    public boolean removeTeamMember(Employee employee) {
         return team.remove(employee);
     }
 
-    Employee getTeamMember(int i) {
+    public Employee getTeamMember(int i) {
         try {
             return team.get(i);
         } catch (IndexOutOfBoundsException e) {
@@ -55,7 +66,7 @@ class Manager extends Employee {
     }
 
     @Override
-    void giveSalary() {
+    public void giveSalary() {
         super.giveSalary();
         team.forEach(Employee::giveSalary);
     }
