@@ -25,9 +25,7 @@ class DepartmentTest {
     @Test
     public void addManager_addDeveloperAsManager_invalidManagerExceptionThrown() {
         assertTimeout(Duration.ofMillis(TIMEOUT), () -> {
-            assertThrows(InvalidManagerException.class, () -> {
-                department.addManager(Mockito.mock(Developer.class));
-            });
+            assertThrows(InvalidManagerException.class, () -> department.addManager(Mockito.mock(Developer.class)));
         });
     }
 
@@ -37,7 +35,7 @@ class DepartmentTest {
             Employee manager = Mockito.mock(Manager.class);
             department.addManager(manager);
             boolean isRemoved = department.removeManager(manager);
-            assertEquals(true, isRemoved);
+            assertTrue(isRemoved);
         });
     }
 
@@ -45,7 +43,7 @@ class DepartmentTest {
     public void removeManager_managerWhichDoesntExist_nothingToRemove() {
         assertTimeout(Duration.ofMillis(TIMEOUT), () -> {
             boolean isRemoved = department.removeManager(Mockito.mock(Manager.class));
-            assertEquals(false, isRemoved);
+            assertFalse(isRemoved);
         });
     }
 
@@ -61,8 +59,6 @@ class DepartmentTest {
 
     @Test
     public void getManager_managerWhichDoesntExist_nullIsReturned() {
-        assertTimeout(Duration.ofMillis(TIMEOUT), () -> {
-            assertEquals(null, department.getManager(0));
-        });
+        assertTimeout(Duration.ofMillis(TIMEOUT), () -> assertNull(department.getManager(0)));
     }
 }

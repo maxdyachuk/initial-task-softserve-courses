@@ -14,9 +14,7 @@ class DeveloperTest {
     @Test
     public void createInstanceOfEmployeeWithExpLessThan0_invalidExperienceValueExceptionThrown() {
         assertTimeout(Duration.ofMillis(TIMEOUT), () -> {
-            assertThrows(InvalidExperienceValueException.class, () -> {
-                new Developer("Alex", "Smith", 500, -1, null);
-            });
+            assertThrows(InvalidExperienceValueException.class, () -> new Developer("Alex", "Smith", 500, -1, null));
         });
     }
 

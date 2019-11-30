@@ -26,9 +26,7 @@ class ManagerTest {
     @Test
     public void addTeamMember_addManager_invalidTeamMemberExceptionThrown() {
         assertTimeout(Duration.ofMillis(TIMEOUT), () -> {
-            assertThrows(InvalidTeamMemberException.class, () -> {
-                manager.addTeamMember(Mockito.mock(Manager.class));
-            });
+            assertThrows(InvalidTeamMemberException.class, () -> manager.addTeamMember(Mockito.mock(Manager.class)));
         });
     }
 
@@ -38,7 +36,7 @@ class ManagerTest {
             Employee developer = Mockito.mock(Developer.class);
             manager.addTeamMember(developer);
             boolean isRemoved = manager.removeTeamMember(developer);
-            assertEquals(true, isRemoved);
+            assertTrue(isRemoved);
         });
     }
 
@@ -46,7 +44,7 @@ class ManagerTest {
     public void removeTeamMember_removeDesignerWhichDoesntExist_nothingToRemove() {
         assertTimeout(Duration.ofMillis(TIMEOUT), () -> {
             boolean isRemoved = manager.removeTeamMember(Mockito.mock(Designer.class));
-            assertEquals(false, isRemoved);
+            assertFalse(isRemoved);
         });
     }
 
@@ -62,9 +60,7 @@ class ManagerTest {
 
     @Test
     public void getTeamMember_getEmployeeWhichDoesntExist_nullIsReturned() {
-        assertTimeout(Duration.ofMillis(TIMEOUT), () -> {
-            assertEquals(null, manager.getTeamMember(0));
-        });
+        assertTimeout(Duration.ofMillis(TIMEOUT), () -> assertEquals(null, manager.getTeamMember(0)));
     }
 
     @Test
