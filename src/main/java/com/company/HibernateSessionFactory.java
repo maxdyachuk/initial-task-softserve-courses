@@ -15,7 +15,7 @@ public class HibernateSessionFactory {
     public static Session currentSession() throws HibernateException {
         if (sessionFactory == null) {
             try {
-                sessionFactory = XmlConfig();
+                sessionFactory = xmlConfig();
             } catch (Exception e) {
                 System.err.println("Error Creating SessionFactory");
                 e.printStackTrace();
@@ -30,7 +30,7 @@ public class HibernateSessionFactory {
         }
     }
 
-    public static SessionFactory XmlConfig() {
+    public static SessionFactory xmlConfig() {
         return new Configuration().configure().buildSessionFactory();
     }
 }

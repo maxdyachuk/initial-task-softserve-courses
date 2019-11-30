@@ -2,7 +2,8 @@ package com.company.exceptions;
 
 public class InvalidManagerException extends RuntimeException {
 
-    public InvalidManagerException() {}
+    public InvalidManagerException() {
+    }
 
     @Override
     public String toString() {

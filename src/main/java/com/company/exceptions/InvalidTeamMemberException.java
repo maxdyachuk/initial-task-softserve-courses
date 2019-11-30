@@ -2,7 +2,8 @@ package com.company.exceptions;
 
 public class InvalidTeamMemberException extends RuntimeException {
 
-    public InvalidTeamMemberException() {}
+    public InvalidTeamMemberException() {
+    }
 
     @Override
     public String toString() {

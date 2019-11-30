@@ -74,9 +74,10 @@ public abstract class Employee {
     }
 
     double calculateSalary() {
-        return (this.getExperience() > 5) ? (this.getRate() * 1.2 + 500) : (
-                (this.getExperience() > 2) ? (this.getRate() + 200) : this.getRate()
-        );
+        if (this.getExperience() > 5) {
+            return this.getRate() * 1.2 + 500;
+        }
+        return (this.getExperience() > 2) ? (this.getRate() + 200) : this.getRate();
     }
 
     public void giveSalary() {

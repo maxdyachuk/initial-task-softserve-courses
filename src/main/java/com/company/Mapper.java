@@ -8,6 +8,9 @@ import java.util.List;
 
 public class Mapper {
 
+    private Mapper() {
+    }
+
     public static void map(Developer developer, DeveloperEntity developerEntity) {
         mapModelToEntity(developer, developerEntity);
     }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DaoApp {
 
-    public static void main(final String[] args) throws Exception {
+    public static void main(final String[] args) {
         ManagerService managerService = new ManagerService();
         EmployeeService employeeService = new EmployeeService();
         DesignerService designerService = new DesignerService();

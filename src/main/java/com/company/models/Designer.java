@@ -22,7 +22,10 @@ public class Designer extends Employee {
     }
 
     private double setValidEffectivenessCoefficient(double effectivenessCoefficient) {
-        return effectivenessCoefficient <= 0 ? 0 : (effectivenessCoefficient > 1 ? 1 : effectivenessCoefficient);
+        if (effectivenessCoefficient < 0) {
+            return 0;
+        }
+        return effectivenessCoefficient > 1 ? 1 : effectivenessCoefficient;
     }
 
     @Override
