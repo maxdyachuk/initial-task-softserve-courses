@@ -1,5 +1,7 @@
 package com.company.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
 @DiscriminatorValue("manager")
 public class ManagerEntity extends EmployeeEntity {
 
+    @JsonBackReference
     @OneToMany(mappedBy = "manager", fetch = FetchType.EAGER)
     private List<EmployeeEntity> team = new ArrayList<>();
 
